@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint ./**/*.js",
     "lint:fix": "eslint --fix ./**/*.js",
+    "test": "node tests/test.js",
     "prepare": "node ./infrastructure/husky-hooks/prepare.js"
   },
   "author": "",

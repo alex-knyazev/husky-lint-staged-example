@@ -1,13 +1,14 @@
-/* eslint-env node */
-
 const path = require('path');
 
-/* CI env variable should be configured in CI environment */
-const isCi = process.env.CI !== undefined
-const gitHooksAreUsedInCurrentEnvironment = ! isCi;
+const gitHooksAreUsedInCurrentEnvironment = ! isCiEnvironment();
 
 if (gitHooksAreUsedInCurrentEnvironment) {
   const pathForHuskySettings = path.join(__dirname, 'settings');
 
   require('husky').install(pathForHuskySettings)
+}
+
+function isCiEnvironment() {
+  /* CI env variable should be set to true in CI environment */
+  return process.env.CI !== undefined 
 }
