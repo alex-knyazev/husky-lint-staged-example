@@ -5,11 +5,6 @@ init();
 async function init() {
   try {
     const { default: lintStaged } = await import("lint-staged");
-    const {
-      getStagedFiles,
-    } = require("node-modules/lint-staged/lib/getStagedFiles.js");
-
-    console.log(getStagedFiles);
 
     colorizeOutputInTerminal();
 
