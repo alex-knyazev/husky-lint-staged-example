@@ -9,7 +9,7 @@ async function init() {
 
   const success = await lintStaged({
     quiet: true, // Only errors will be printed
-    configPath: path.join(__dirname, "./.lint-staged.config.js"),
+    configPath: path.join(__dirname, "./lint-staged.config.js"),
   });
 
   if (!success) {
