@@ -5,16 +5,18 @@ init();
 async function init() {
   try {
     const { default: lintStaged } = await import("lint-staged");
+    const { getStagedFiles } = await import(
+      "lint-staged/lib/getStagedFiles.js"
+    );
+
+    console.log(getStagedFiles);
 
     colorizeOutputInTerminal();
 
     const success = await lintStaged({
       quiet: true, // Only errors will be printed
       configPath: path.join(__dirname, "./.lintstagedrc"),
-      verbose: true,
     });
-
-    console.log(success);
 
     if (!success) {
       console.log(success);
