@@ -15,11 +15,8 @@ async function init() {
 
     if (!success) {
       console.log(success);
-      console.log("Linting failed!");
-      process.exit(1);
+      throw new Error("Linting failed!\n");
     }
-
-    console.log("Linting was successful!");
   } catch (e) {
     // Failed to load configuration
     console.error(e);
