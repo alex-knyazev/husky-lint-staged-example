@@ -1,4 +1,4 @@
 module.exports = {
-  "*.js": (allStagedFiles) => `npm run lint:fix ${allStagedFiles}`,
+  "*.js": () => `npm run lint:fix`,
   "tests/*.js": () => "npm run test",
 };

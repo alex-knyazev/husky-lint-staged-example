@@ -3,23 +3,17 @@ const path = require("path");
 init();
 
 async function init() {
-  try {
-    const { default: lintStaged } = await import("lint-staged");
+  const { default: lintStaged } = await import("lint-staged");
 
-    colorizeOutputInTerminal();
+  colorizeOutputInTerminal();
 
-    const success = await lintStaged({
-      quiet: true, // Only errors will be printed
-      configPath: path.join(__dirname, "./.lint-staged.config.js"),
-    });
+  const success = await lintStaged({
+    quiet: true, // Only errors will be printed
+    configPath: path.join(__dirname, "./.lint-staged.config.js"),
+  });
 
-    if (!success) {
-      console.log(success);
-      throw new Error("Linting failed!\n");
-    }
-  } catch (e) {
-    // Failed to load configuration
-    console.error(e);
+  if (!success) {
+    throw new Error("Linting failed!\n");
   }
 }
 

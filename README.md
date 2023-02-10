@@ -77,7 +77,6 @@ async function init() {
     });
 
     if (!success) {
-      console.log(success);
       console.log("Linting failed!");
       process.exit(1);
     }
