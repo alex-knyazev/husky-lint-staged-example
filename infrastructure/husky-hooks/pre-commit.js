@@ -5,9 +5,9 @@ init();
 async function init() {
   try {
     const { default: lintStaged } = await import("lint-staged");
-    const { getStagedFiles } = await import(
-      "node-modules/lint-staged/lib/getStagedFiles.js"
-    );
+    const {
+      getStagedFiles,
+    } = require("node-modules/lint-staged/lib/getStagedFiles.js");
 
     console.log(getStagedFiles);
 
